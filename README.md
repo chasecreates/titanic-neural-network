@@ -5,3 +5,5 @@ including their class, fare paid, age, siblings on board, parents on board, age,
 
 Data was cleaned using Pandas (converting descriptive information to symbolic numerical data). A simple multilayer perceptron model was written
 in Python using the Theano/Keras library. An accuracy of ~80% was obtained.
+
+Competiton details + details available [here.](https://www.kaggle.com/c/titanic/)
