@@ -4,6 +4,7 @@ from sklearn.cross_validation import train_test_split
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 from keras.utils import np_utils
+from keras.optimizers import SGD
 
 #far too much repetition, just cleaning the data for the neural net
 df = pd.read_csv('titanic.csv')
@@ -29,7 +30,7 @@ y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 
 nb_classes = 2
-nb_epoch = 200
+nb_epoch = 100
 batch_size = 32
 
 model = Sequential()
@@ -43,6 +44,8 @@ model.add(Dense(256))
 model.add(Activation('relu'))
 model.add(Dense(2))
 model.add(Activation('softmax'))
+
+
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.fit(X_train, y_train, batch_size = batch_size, nb_epoch=nb_epoch, validation_data=(X_test, y_test), verbose=2)
